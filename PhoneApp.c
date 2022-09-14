@@ -18,7 +18,7 @@ void nuevo_num(){
     printf("\n\tEmail: " );
     char email[20];
     scanf("%s",email);
-    fprintf(fp,"%s %s %s %s\n",nombre,gen,num,email);
+    fprintf(fp,"%s %s %d %s\n",nombre,gen,num,email);
     fclose(fp);
     printf("\n\tPresione alguna tecla para continuar");
     getch();
@@ -35,18 +35,18 @@ void borrar_num(){
     char nombre[20];
         scanf("%s",nombre);
     char nombreSe[20],gen[20],num[20],email[20];
-        while(fscanf(fp,"%s %s",nombreSe,gen,num,email)!=EOF){
+        while(fscanf(fp,"%s %s %d %s",nombreSe,gen,num,email)!=EOF){
             if(strcmp(nombre,nombreSe)==0){
                 continue;
             }
-            fprintf(fp1,"%s %s\n",nombreSe,gen,num,email);
+            fprintf(fp1,"%s %s %d %s\n",nombreSe,gen,num,email);
         }
     fclose(fp);
     fclose(fp1);
     fp=fopen("info.txt","w");
     fp1=fopen("temp.txt","r");
-        while(fscanf(fp1,"%s %s",nombreSe,gen,num,email)!=EOF){
-            fprintf(fp,"%s %s\n",nombreSe,gen,num,email);
+        while(fscanf(fp1,"%s %s %d %s",nombreSe,gen,num,email)!=EOF){
+            fprintf(fp,"%s %s %d %s\n",nombreSe,gen,num,email);
         }
     fclose(fp);
     fclose(fp1);
@@ -61,11 +61,11 @@ void buscar_num(){
     fp=fopen("info.txt","r");
     system("cls");
     printf("\t============Buscar Contacto===============");
-    printf("\n\t Nombre que desea borrar: ");
+    printf("\n\t Nombre que desea Buscar: ");
     char name[20];
     scanf("%s",name);
     char nombreSe[20],gen[20],num[20],email[20];
-    while(fscanf(fp,"%s %s",nombreSe,gen,num,email)!=EOF){
+    while(fscanf(fp,"%s %s %d %s",nombreSe,gen,num,email)!=EOF){
         if(strcmp(name,nombreSe)==0){
             printf("\n\tNombre:  %s\n",nombreSe);
             printf("\n\tGenero:  %s\n",gen);
